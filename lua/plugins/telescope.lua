@@ -5,6 +5,8 @@ return {
 
         dependencies = {
             "nvim-lua/plenary.nvim",
+            -- Added media preview extension
+            "dharmx/telescope-media.nvim",
         },
 
         keys = {
@@ -37,6 +39,13 @@ return {
                 "<leader>fh",
                 "<cmd>Telescope help_tags<CR>",
                 desc = "Help Tags",
+            },
+
+            -- Added media previewer keymap for Scribe attachments
+            {
+                "<leader>fm",
+                "<cmd>Telescope media<CR>",
+                desc = "Find Media / Attachments",
             },
         },
 
@@ -136,7 +145,17 @@ return {
                                     no_ignore = true,
                                 },
                             },
+
+                            -- Registered extension and backend configuration
+                            extensions = {
+                                media = {
+                                    backend = "chafa",
+                                },
+                            },
                         })
+
+                        -- Load the extension safely after setup
+                        pcall(telescope.load_extension, "media")
                         end,
     },
 }

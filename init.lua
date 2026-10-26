@@ -13,6 +13,8 @@ require("config.autocmds")
 require("config.terminal")
 require("config.player")
 
+require("commands.file_utils")
+
 -- =========================================
 -- LAZY.NVIM BOOTSTRAP
 -- =========================================
