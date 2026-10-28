@@ -26,12 +26,12 @@ return {
 
         -- Register your custom leader key groups and descriptions
         wk.add({
-            { "<leader>t", group = "Terminal / Tabs" },
-            { "<leader>tt", desc = "Toggle Global Singleton Terminal" },
-            { "<leader>ww", desc = "Shuttle / Toggle Terminal Focus" },
-            { "<leader>tq", desc = "Kill Terminal Completely" },
+            { "<leader>t", group = "Tabs / Workspaces" },
             { "<leader>to", desc = "Open Oil in New Tab" },
             { "<leader>e", desc = "Toggle Oil File Explorer" },
+            { "<leader>m", group = "Music / CAVA" },
+            { "<leader>mr", desc = "Refresh CAVA Visualizer" },
+            { "<leader>mp", desc = "Play / Pause Music" },
         })
     end,
 }

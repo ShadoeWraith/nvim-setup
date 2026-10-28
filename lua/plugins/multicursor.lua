@@ -7,9 +7,9 @@ return {
 
     local set = vim.keymap.set
 
-    -- Stack cursors vertically using Ctrl+k / Ctrl+j
-    set({"n", "x"}, "<c-k>", function() mc.lineAddCursor(-1) end)
-    set({"n", "x"}, "<c-j>", function() mc.lineAddCursor(1) end)
+    -- Stack cursors vertically using leader + Up / Down (or leader + k / j)
+    set({"n", "x"}, "<leader>mk", function() mc.lineAddCursor(-1) end, { desc = "Add cursor above" })
+    set({"n", "x"}, "<leader>mj", function() mc.lineAddCursor(1) end, { desc = "Add cursor below" })
 
     -- Move multi-cursor word matching to non-conflicting keys (e.g., <leader>m prefix)
     set({"n", "x"}, "<leader>md", function() mc.matchAddCursor(1) end, { desc = "Add cursor for matching word" })

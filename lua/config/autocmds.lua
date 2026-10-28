@@ -36,22 +36,17 @@ vim.opt.autoread = true
 autocmd({ "FocusGained", "BufEnter", "CursorHold", "FileChangedShell" }, {
     group = augroup("AutoReadCheck", { clear = true }),
     callback = function()
-        if vim.bo.buftype ~= "terminal" then
-            vim.cmd("checktime")
+        vim.cmd("checktime")
+    end,
+})
+
+-- 4. Automatically enter insert/terminal mode when opening or focusing a terminal
+autocmd({ "TermOpen", "BufEnter" }, {
+    group = augroup("TerminalAutoInsert", { clear = true }),
+    callback = function()
+        if vim.bo.buftype == "terminal" then
+            vim.cmd("startinsert")
         end
     end,
 })
 
--- 4. Automatically drop straight into insert mode whenever you focus any terminal window
-autocmd("WinEnter", {
-    group = augroup("TerminalAutoInsert", { clear = true }),
-    callback = function()
-        local buf = vim.api.nvim_get_current_buf()
-        if vim.bo[buf].buftype == "terminal" then
-            -- Ensure the terminal job is active before jumping into insert mode
-            if vim.b[buf].terminal_job_id then
-                vim.cmd("startinsert")
-            end
-        end
-    end,
-})

@@ -24,6 +24,9 @@ vim.opt.foldlevelstart = 99
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Clean session options (exclude blank so placeholder plugin splits don't get saved)
+vim.opt.sessionoptions = { "buffers", "curdir", "folds", "help", "tabpages", "winsize", "terminal" }
+
 -- Completely disable the bottom status line across all panes
 vim.opt.laststatus = 0
 

@@ -36,15 +36,33 @@ return {
             end,
         })
 
+        -- Exclude transient oil buffers from sessions before saving
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "PersistenceSavePre",
+            group = vim.api.nvim_create_augroup("PersistenceSavePreCleanup", { clear = true }),
+            callback = function()
+                for _, b in ipairs(vim.api.nvim_list_bufs()) do
+                    if vim.api.nvim_buf_is_valid(b) then
+                        local name = vim.api.nvim_buf_get_name(b)
+                        if name:match("^oil://") or vim.bo[b].filetype == "oil" then
+                            pcall(vim.api.nvim_buf_delete, b, { force = true })
+                        end
+                    end
+                end
+            end,
+        })
+
         -- Clean up stale directory/oil buffers right before session load so oil doesn't contaminate real file buffers
         vim.api.nvim_create_autocmd("User", {
             pattern = "PersistenceLoadPre",
             group = vim.api.nvim_create_augroup("PersistenceCleanupPre", { clear = true }),
             callback = function()
                 for _, b in ipairs(vim.api.nvim_list_bufs()) do
-                    local name = vim.api.nvim_buf_get_name(b)
-                    if name:match("^oil://") or vim.bo[b].filetype == "oil" then
-                        pcall(vim.api.nvim_buf_delete, b, { force = true })
+                    if vim.api.nvim_buf_is_valid(b) then
+                        local name = vim.api.nvim_buf_get_name(b)
+                        if name:match("^oil://") or vim.bo[b].filetype == "oil" then
+                            pcall(vim.api.nvim_buf_delete, b, { force = true })
+                        end
                     end
                 end
             end,

@@ -1,3 +1,9 @@
+-- Window navigation using Ctrl + hjkl
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = "Go to left window" })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = "Go to lower window" })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = "Go to upper window" })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = "Go to right window" })
+
 -- Line & selection movement using Alt + j/k
 vim.keymap.set("n", "<M-j>", ":m .+1<CR>==", { silent = true, desc = "Move line down" })
 vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move selection down" })
@@ -31,12 +37,6 @@ vim.keymap.set('n', '<S-l>', 'gt', { desc = "Next workspace tab" })
 vim.keymap.set('n', '<leader>tr', ':tabmove +1<CR>', { desc = "Move workspace right" })
 vim.keymap.set('n', '<leader>tl', ':tabmove -1<CR>', { desc = "Move workspace left" })
 
--- Keymap to open Oil in a new tab at the current file's directory
-vim.keymap.set("n", "<leader>to", function()
-    local current_dir = vim.fn.expand("%:p:h")
-    vim.cmd("tabnew")
-    require("oil").open(current_dir)
-end, { desc = "Open Oil in a new tab" })
 
 -- Jump directly to workspace 1-9
 for i = 1, 9 do
@@ -62,11 +62,16 @@ local function resize_height(direction)
     vim.cmd("resize " .. (delta > 0 and "+" or "") .. delta)
 end
 
--- Safe Spatial Resizing (Arrows only, freeing up Alt-h/l for terminals)
+-- Safe Spatial Resizing (Arrows)
 vim.keymap.set('n', '<M-Left>', function() resize_width("left") end, { desc = "Spatial resize left" })
 vim.keymap.set('n', '<M-Right>', function() resize_width("right") end, { desc = "Spatial resize right" })
 vim.keymap.set('n', '<M-Up>', function() resize_height("up") end, { desc = "Spatial resize up" })
 vim.keymap.set('n', '<M-Down>', function() resize_height("down") end, { desc = "Spatial resize down" })
+
+-- Terminal mode resizing (Alt + Up / Alt + Down)
+vim.keymap.set('t', '<M-Up>', function() resize_height("up") end, { desc = "Resize terminal up" })
+vim.keymap.set('t', '<M-Down>', function() resize_height("down") end, { desc = "Resize terminal down" })
+
 
 -- Move current tab left/right
 vim.keymap.set("n", "<leader>th", ":tabmove -1<CR>", { silent = true, desc = "Move tab left" })
@@ -81,3 +86,11 @@ end, { desc = "Find functions in current file" })
 -- Pressing Tab in visual mode auto-indents selection to the proper spot and stays in visual mode
 vim.keymap.set("v", "<Tab>", "=", { desc = "Auto-indent selection to proper spot and stay in visual mode" })
 vim.keymap.set("v", "<S-Tab>", "<", { desc = "Outdent and stay in visual mode" })
+
+-- Open terminal in bottom split for all forms of :te .. :terminal (default height: 12 lines)
+for _, cmd in ipairs({ "te", "ter", "term", "termi", "termin", "termina", "terminal" }) do
+    vim.cmd(string.format([[
+        cnoreabbrev <expr> %s (getcmdtype() ==# ':' && getcmdline() =~# '^%s\>') ? 'botright 12split \| term' : '%s'
+    ]], cmd, cmd, cmd))
+end
+

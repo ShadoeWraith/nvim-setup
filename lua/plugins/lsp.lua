@@ -93,6 +93,13 @@ return {
                 root_markers = { "ols.json", ".git" },
             })
             vim.lsp.enable("ols")
+            vim.lsp.config("clangd", {
+                cmd = { "clangd", "--background-index", "--clang-tidy" },
+                filetypes = { "c", "cpp", "objc", "objcpp" },
+                capabilities = capabilities,
+                root_markers = { "compile_commands.json", "compile_flags.txt", ".git" },
+            })
+            vim.lsp.enable("clangd")
 
             vim.lsp.config("tailwindcss", {
                 cmd = { "tailwindcss-language-server", "--stdio" },
