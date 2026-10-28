@@ -29,6 +29,7 @@ return {
             { "<leader>t", group = "Tabs / Workspaces" },
             { "<leader>to", desc = "Open Oil in New Tab" },
             { "<leader>e", desc = "Toggle Oil File Explorer" },
+            { "<leader>q", desc = "Toggle Grep / Quickfix Window" },
             { "<leader>m", group = "Music / CAVA" },
             { "<leader>mr", desc = "Refresh CAVA Visualizer" },
             { "<leader>mp", desc = "Play / Pause Music" },

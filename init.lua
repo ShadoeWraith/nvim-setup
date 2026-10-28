@@ -1,4 +1,3 @@
-
 -- =========================================
 -- INITIALIZATION & CORE LOADING
 -- =========================================
@@ -13,6 +12,7 @@ require("config.autocmds")
 require("config.player")
 
 require("commands.file_utils")
+require("commands.grep_utils")
 
 -- =========================================
 -- LAZY.NVIM BOOTSTRAP
@@ -141,6 +141,3 @@ if not vim.uv.fs_stat(lazypath) then
     vim.api.nvim_create_autocmd("ColorScheme", {
         callback = set_ui_highlights,
     })
-
-
-

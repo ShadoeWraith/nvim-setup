@@ -104,3 +104,31 @@ WRN 2026-10-28T02:02:30.760 ?.42       socket_watcher_start:185: Failed to remov
 WRN 2026-10-28T02:02:30.760 ?.42       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
 WRN 2026-10-28T02:02:38.542 ?.42       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.42.0: no such file or directory
 WRN 2026-10-28T02:02:38.542 ?.42       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
+WRN 2026-10-28T02:18:13.276 ?.38       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.38.0: no such file or directory
+WRN 2026-10-28T02:18:13.276 ?.38       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
+WRN 2026-10-28T02:18:48.362 ?.42       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.42.0: no such file or directory
+WRN 2026-10-28T02:18:48.362 ?.42       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
+WRN 2026-10-28T02:18:51.082 ?.41       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.41.0: no such file or directory
+WRN 2026-10-28T02:18:51.082 ?.41       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
+WRN 2026-10-28T02:18:55.141 ?.38       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.38.0: no such file or directory
+WRN 2026-10-28T02:18:55.141 ?.38       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
+WRN 2026-10-28T02:18:57.709 ?.39       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.39.0: no such file or directory
+WRN 2026-10-28T02:18:57.709 ?.39       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
+WRN 2026-10-28T02:19:00.360 ?.42       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.42.0: no such file or directory
+WRN 2026-10-28T02:19:00.360 ?.42       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
+WRN 2026-10-28T02:19:21.274 ?.43       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.43.0: no such file or directory
+WRN 2026-10-28T02:19:21.274 ?.43       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
+WRN 2026-10-28T02:19:25.968 ?.39       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.39.0: no such file or directory
+WRN 2026-10-28T02:19:25.968 ?.39       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
+ERR 2026-10-28T02:19:25.970 ?.39       vim_mktempdir:3361: tempdir root has invalid permissions (40777): /tmp/nvim.shaun
+WRN 2026-10-28T02:19:38.664 ?.44       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.44.0: no such file or directory
+WRN 2026-10-28T02:19:38.664 ?.44       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
+ERR 2026-10-28T02:19:38.666 ?.44       vim_mktempdir:3361: tempdir root has invalid permissions (40777): /tmp/nvim.shaun
+WRN 2026-10-28T02:22:54.677 ?.40       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.40.0: no such file or directory
+WRN 2026-10-28T02:22:54.677 ?.40       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
+WRN 2026-10-28T02:30:20.280 ?.44       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.44.0: no such file or directory
+WRN 2026-10-28T02:30:20.280 ?.44       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
+WRN 2026-10-28T02:31:46.879 ?.42       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.42.0: no such file or directory
+WRN 2026-10-28T02:31:46.879 ?.42       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
+WRN 2026-10-28T02:31:54.727 ?.41       socket_watcher_start:185: Failed to remove stale socket /run/user/1000/nvim.41.0: no such file or directory
+WRN 2026-10-28T02:31:54.727 ?.41       server_start:197: Failed to start server: no such file or directory: /run/user/1000/
