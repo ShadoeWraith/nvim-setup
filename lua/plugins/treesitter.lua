@@ -10,8 +10,8 @@ return {
     install.prefer_git = true
     install.compilers = { "cc", "gcc", "clang" }
 
-    -- 1. Tell tree-sitter to install your desired languages
-    ts.install({ "odin", "lua", "c", "cpp", "bash" })
+    -- 1. Tell tree-sitter to install your desired languages (added TSX and TypeScript)
+    ts.install({ "odin", "lua", "c", "cpp", "bash", "tsx", "typescript", "javascript", "html" })
 
     -- 2. Turn on native tree-sitter highlighting
     vim.api.nvim_create_autocmd("FileType", {

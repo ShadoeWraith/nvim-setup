@@ -10,7 +10,6 @@ vim.opt.termguicolors = true
 require("config.options")
 require("config.keymaps")
 require("config.autocmds")
-require("config.terminal")
 require("config.player")
 
 require("commands.file_utils")
@@ -23,7 +22,7 @@ require("commands.file_utils")
 vim.filetype.add({
     extension = {
         odin = "odin",
-    },
+  },
 })
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
