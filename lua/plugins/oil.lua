@@ -4,6 +4,16 @@ return {
     config = function()
         local oil = require("oil")
 
+        -- Force skip confirmation prompts for all actions (including deletions)
+        local orig_save = oil.save
+        oil.save = function(opts)
+            opts = opts or {}
+            if opts.confirm == nil then
+                opts.confirm = false
+            end
+            return orig_save(opts)
+        end
+
         local function normalize_path(path)
             if not path then return nil end
             local p = vim.fs.normalize(path)
@@ -81,6 +91,7 @@ return {
             },
             view_options = {
                 show_hidden = true,
+                trash_command = "trash-put",
             },
             use_default_keymaps = true,
             keymaps = {
@@ -93,7 +104,8 @@ return {
                     end,
                     desc = "Save Oil edits without splitting",
                 },
-                ["<Esc>"] = {
+                -- Changed close binding from <Esc> to 'q' so <Esc> stays clean
+                ["q"] = {
                     callback = function()
                         local cur_tab = vim.api.nvim_get_current_tabpage()
                         local is_tab_created = vim.t[cur_tab].is_oil_tab
@@ -149,7 +161,6 @@ return {
             },
         })
 
-        -- <leader>e: Toggle Oil in the CURRENT window as a temporary directory view
         vim.keymap.set("n", "<leader>e", function()
             local ft = vim.bo.filetype
             if ft == "oil" then
@@ -170,7 +181,6 @@ return {
             end
         end, { desc = "Toggle Oil file explorer in current window" })
 
-        -- <leader>to: Open Oil in a brand-new workspace tab
         vim.keymap.set("n", "<leader>to", function()
             local prev_tab = vim.api.nvim_get_current_tabpage()
             local current_dir = vim.fn.expand("%:p:h")
@@ -181,8 +191,8 @@ return {
             local new_tab = vim.api.nvim_get_current_tabpage()
             vim.t[new_tab].is_oil_tab = true
             vim.t[new_tab].oil_prev_tab = prev_tab
-
+            
             oil.open(current_dir)
-        end, { desc = "Open Oil in a new tab workspace" })
-    end,
+        end, { desc = "Open Oil file explorer in a new tab" })
+    end
 }

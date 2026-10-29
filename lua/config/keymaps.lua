@@ -1,8 +1,8 @@
 -- Window navigation using Ctrl + hjkl
-vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = "Go to left window" })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = "Go to lower window" })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = "Go to upper window" })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = "Go to right window" })
+vim.keymap.set('n', '<leader>wh', '<C-w>h', { desc = "Go to left window" })
+vim.keymap.set('n', '<leader>wj', '<C-w>j', { desc = "Go to lower window" })
+vim.keymap.set('n', '<leader>wk', '<C-w>k', { desc = "Go to upper window" })
+vim.keymap.set('n', '<leader>wl', '<C-w>l', { desc = "Go to right window" })
 
 -- Line & selection movement using Alt + j/k
 vim.keymap.set("n", "<M-j>", ":m .+1<CR>==", { silent = true, desc = "Move line down" })
